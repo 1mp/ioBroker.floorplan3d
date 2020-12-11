@@ -1,0 +1,43 @@
+{
+  "name": "iobroker.floorplan3d",
+  "version": "0.0.1",
+  "description": "Visualizes floor plan in 3D",
+  "author": {
+    "name": "1mp",
+    "email": "mf@creavio.de"
+  },
+  "contributors": [
+    {
+      "name": "Malte Frerichs"
+    }
+  ],
+  "homepage": "https://github.com/1mp/ioBroker.floorplan3d",
+  "license": "MIT",
+  "keywords": [
+    "floor",
+    "plan",
+    "3d",
+    "vis",
+    "iobroker"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1mp/ioBroker.floorplan3d"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@iobroker/testing": "^2.4.0",
+    "@types/gulp": "^4.0.7",
+    "axios": "^0.21.0",
+    "gulp": "^4.0.2"
+  },
+  "main": "widgets/floorplan3d.html",
+  "scripts": {
+    "test:package": "mocha test/package --exit",
+    "test": "npm run test:package"
+  },
+  "bugs": {
+    "url": "https://github.com/1mp/ioBroker.floorplan3d/issues"
+  },
+  "readmeFilename": "README.md"
+}

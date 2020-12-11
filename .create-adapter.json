@@ -1,0 +1,30 @@
+{
+    "cli": true,
+    "adapterName": "floorplan3d",
+    "title": "Floor plan 3D",
+    "description": "Visualizes floor plan in 3D",
+    "keywords": [
+        "floor",
+        "plan",
+        "3d",
+        "vis",
+        "iobroker"
+    ],
+    "contributors": [
+        "Malte Frerichs"
+    ],
+    "expert": "yes",
+    "features": [
+        "vis"
+    ],
+    "type": "visualization-widgets",
+    "authorName": "1mp",
+    "authorGithub": "1mp",
+    "authorEmail": "mf@creavio.de",
+    "gitRemoteProtocol": "HTTPS",
+    "gitCommit": "yes",
+    "license": "MIT License",
+    "ci": "gh-actions",
+    "dependabot": "yes",
+    "creatorVersion": "1.31.0"
+}

@@ -1,0 +1,81 @@
+{
+    "common": {
+        "name": "floorplan3d",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "Floor plan 3D",
+        "titleLang": {
+            "en": "Floor plan 3D",
+            "de": "Grundriss 3D",
+            "ru": "План этажа 3D",
+            "pt": "Planta baixa 3D",
+            "nl": "Plattegrond 3D",
+            "fr": "Plan d'étage 3D",
+            "it": "Planimetria 3D",
+            "es": "Plano de planta 3D",
+            "pl": "Plan piętra 3D",
+            "zh-cn": "平面图3D"
+        },
+        "desc": {
+            "en": "Visualizes floor plan in 3D",
+            "de": "Visualisiert den Grundriss in 3D",
+            "ru": "Визуализирует план этажа в 3D",
+            "pt": "Visualiza planta baixa em 3D",
+            "nl": "Visualiseert plattegrond in 3D",
+            "fr": "Visualise le plan d'étage en 3D",
+            "it": "Visualizza la planimetria in 3D",
+            "es": "Visualiza el plano de planta en 3D",
+            "pl": "Wizualizuje plan piętra w 3D",
+            "zh-cn": "以3D可视化平面图"
+        },
+        "authors": [
+            "1mp <mf@creavio.de>"
+        ],
+        "keywords": [
+            "floor",
+            "plan",
+            "3d",
+            "vis",
+            "iobroker"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "floorplan3d.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/1mp/ioBroker.floorplan3d/master/admin/floorplan3d.png",
+        "readme": "https://github.com/1mp/ioBroker.floorplan3d/blob/master/README.md",
+        "loglevel": "info",
+        "restartAdapters": [
+            "vis"
+        ],
+        "localLink": "%web_protocol%://%ip%:%web_port%/vis/edit.html",
+        "onlyWWW": true,
+        "noConfig": true,
+        "singleton": true,
+        "type": "visualization-widgets",
+        "mode": "once",
+        "dependencies": [
+            "vis"
+        ]
+    },
+    "native": {
+        "option1": true,
+        "option2": "42"
+    },
+    "objects": [],
+    "instanceObjects": []
+}
