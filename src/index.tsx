@@ -3,21 +3,16 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import {App} from './app';
 
+// Whenn module hot is not defined, it should be in vis
 if (!module.hot) {
 
-// this code can be placed directly in floorplan3d.html
   vis.binds['floorplan3d'] = {
-    version: '0.0.1',
-    showVersion: function () {
-      if (vis.binds['floorplan3d'].version) {
-        console.log('Version floorplan3d: ' + vis.binds['floorplan3d'].version);
-        vis.binds['floorplan3d'].version = null;
-      }
-    },
-    createWidget: function (widgetID: any, view: any, data: any, style: any) {
-      console.log('create Widget');
 
-      let $div = $('#' + widgetID);
+    // TODO Was hiervon brauchen wir wirklich?
+    // TODO Parameter übersetzten und schauen was wir für react brauchen (als Provider oder so)
+    version: '0.0.1',
+    createWidget: (widgetID: any, view: any, data: any, style: any) => {
+      const $div = $('#' + widgetID);
       // if nothing found => wait
       if (!$div.length) {
         return setTimeout(function () {
@@ -25,40 +20,19 @@ if (!module.hot) {
         }, 100);
       }
 
-      console.log('jetzt wird gerender');
+      // Müssen wir eine registry haben für alle react apps?
+      // Gibt es möglichkeiten das hier mehrere element gibt?
       render($div.get()[0]);
-      console.log('rendern fertig');
-
-      // var text = '';
-      // text += 'OID: ' + data.oid + '</div><br>';
-      // text += 'OID value: <span class="floorplan3d-value">' + vis.states[data.oid + '.val'] + '</span><br>';
-      // text += 'Color: <span style="color: ' + data.myColor + '">' + data.myColor + '</span><br>';
-      // text += 'extraAttr: ' + data.extraAttr + '<br>';
-      // text += 'Browser instance: ' + vis.instance + '<br>';
-      // text += 'htmlText: <textarea readonly style="width:100%">' + (data.htmlText || '') + '</textarea><br>';
-      //
-      // $('#' + widgetID).html(text);
-      //
-      // // subscribe on updates of value
-      // function onChange(_e: any, newVal: any, _oldVal: any) {
-      //   $div.find('.template-value').html(newVal);
-      // }
-      // if (data.oid) {
-      //   vis.states.bind(data.oid + '.val', onChange);
-      //   //remember bound state that vis can release if didnt needed
-      //   $div.data('bound', [data.oid + '.val']);
-      //   //remember onchange handler to release bound states
-      //   $div.data('bindHandler', onChange);
-      // }
     },
   };
 
-  vis.binds['floorplan3d'].showVersion();
 } else {
+  // We are in de mode, find app element and start react
   const element = document.getElementById('app')!;
 
   render(element);
 
+  // enable hot replacement
   module.hot.accept('./app.tsx', () => {
     render(element);
   });

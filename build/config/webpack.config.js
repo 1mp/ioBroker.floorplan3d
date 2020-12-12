@@ -108,7 +108,7 @@ module.exports = function (env, args) {
       IS_DEBUG && new webpack.HotModuleReplacementPlugin(),
 
       !IS_RELEASE && new HtmlWebpackPlugin({
-        template: path.join(APP_SRC_DIR, '/domain/widget/index.html'),
+        template: path.join(APP_SRC_DIR, '/index.html'),
         filename: 'index.html'
       }),
 
