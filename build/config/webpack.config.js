@@ -112,10 +112,10 @@ module.exports = function (env, args) {
         filename: 'index.html'
       }),
 
-      new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery'
-      }),
+      // new webpack.ProvidePlugin({
+      //   $: 'jquery',
+      //   jQuery: 'jquery'
+      // }),
 
 
       new ForkTsCheckerWebpackPlugin({
