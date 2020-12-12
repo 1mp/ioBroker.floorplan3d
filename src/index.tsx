@@ -36,6 +36,8 @@ vis.binds["floorplan3d"] = {
     }
   },
   createWidget: function (widgetID: any, view: any, data: any, style: any) {
+    console.log('create Widget');
+
     let $div = $('#' + widgetID);
     // if nothing found => wait
     if (!$div.length) {
@@ -44,7 +46,9 @@ vis.binds["floorplan3d"] = {
       }, 100);
     }
 
+    console.log('jetzt wird gerender');
     render($div.get()[0]);
+    console.log('rendern fertig');
 
     // var text = '';
     // text += 'OID: ' + data.oid + '</div><br>';

@@ -1,6 +1,6 @@
 {
   "name": "iobroker.floorplan3d",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Visualizes floor plan in 3D",
   "author": {
     "name": "1mp",
