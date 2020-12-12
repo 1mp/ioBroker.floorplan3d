@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+    build:
+        build: build/docker/node
+#        command: npm i
+        command: npm run watch
+        volumes:
+            - ./:/usr/app
+        ports:
+            - "3080:8080"
+            - "3081:8081"
+        environment:
+            APP_HOST: "192.168.233.175"
+            APP_HTTP_PORT: "8080"
