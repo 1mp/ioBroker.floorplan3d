@@ -14,7 +14,7 @@ export default function Widget() {
 
   return (
     <div>
-      Hello from React: {time.getSeconds()} {random}
+      Hello from React to VIS: {time.getSeconds()} {random}
     </div>
   );
 }
