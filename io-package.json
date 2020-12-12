@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "floorplan3d",
-        "version": "0.0.5",
+        "version": "0.0.7",
         "news": {
             "0.0.1": {
                 "en": "initial release",
