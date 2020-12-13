@@ -22,26 +22,27 @@ if (!module.hot) {
 
       // Müssen wir eine registry haben für alle react apps?
       // Gibt es möglichkeiten das hier mehrere element gibt?
-      render($div.get()[0]);
+      render($div.get()[0], data);
     },
   };
 
 } else {
   // We are in de mode, find app element and start react
   const element = document.getElementById('app')!;
+  const defaultData = {};
 
-  render(element);
+  render(element, defaultData);
 
   // enable hot replacement
   module.hot.accept('./app.tsx', () => {
-    render(element);
+    render(element, defaultData);
   });
 }
 
 
-function render(element: HTMLElement) {
+function render(element: HTMLElement, data: any) {
   ReactDOM.render(
-    <App/>,
+    <App data={data}/>,
     element,
   );
 }
