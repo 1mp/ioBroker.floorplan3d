@@ -1,0 +1,1 @@
+export const visIsEnabled = typeof vis !== 'undefined';

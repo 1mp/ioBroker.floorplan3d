@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Widget from './domain/widget/widget';
+import {visIsEnabled} from './vendor/vis';
 
 export interface AppProps {
   data: { oid: string | undefined };
@@ -9,15 +10,21 @@ export function App({ data }: AppProps) {
   console.log('data', data);
 
   console.log('vis type', typeof vis);
-  const [watch] = useState(data.oid);
+  const [value, setValue] = useState<any>();
 
-  // vis.states.bind(data.oid_command + '.val', onChange);
+  if (visIsEnabled) {
+    vis.states.bind(data.oid + '.val', (e: any, newVal: any, oldVal: any) => {
+      console.log(e, newVal, oldVal);
+      setValue(newVal);
+    });
+  }
 
   return (
     <>
       <Widget/>
       <br/>
-      Watch: {watch}
+      Watch: {data.oid} <br/>
+      Value: {value}
     </>
   );
 }

@@ -2,9 +2,21 @@ import './vendor';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import {App} from './app';
+import {visIsEnabled} from './vendor/vis';
 
-// Whenn module hot is not defined, it should be in vis
-if (!module.hot) {
+if (!visIsEnabled) {
+  // We are in de mode, find app element and start react
+  const element = document.getElementById('app')!;
+  const defaultData = {};
+
+  render(element, defaultData);
+
+  // enable hot replacement
+  module.hot && module.hot.accept('./app.tsx', () => {
+    render(element, defaultData);
+  });
+
+} else {
 
   vis.binds['floorplan3d'] = {
 
@@ -25,18 +37,6 @@ if (!module.hot) {
       render($div.get()[0], data);
     },
   };
-
-} else {
-  // We are in de mode, find app element and start react
-  const element = document.getElementById('app')!;
-  const defaultData = {};
-
-  render(element, defaultData);
-
-  // enable hot replacement
-  module.hot.accept('./app.tsx', () => {
-    render(element, defaultData);
-  });
 }
 
 
