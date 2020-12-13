@@ -10,7 +10,7 @@ export function App({ data }: AppProps) {
   console.log('data', data);
 
   console.log('vis type', typeof vis);
-  const [value, setValue] = useState<any>();
+  const [value, setValue] = useState<any>(visIsEnabled ? vis.states[data.oid + '.val'] : 0);
 
   if (visIsEnabled) {
     vis.states.bind(data.oid + '.val', (e: any, newVal: any, oldVal: any) => {
@@ -24,7 +24,13 @@ export function App({ data }: AppProps) {
       <Widget/>
       <br/>
       Watch: {data.oid} <br/>
-      Value: {value}
+      Value: {value}<br/>
+
+      {value == 1 && (
+        <div style={{ backgroundColor: '#F90', width: 200, height: 200 }}>
+          LICHT
+        </div>
+      )}
     </>
   );
 }
