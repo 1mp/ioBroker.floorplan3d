@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = function (env, args) {
   const APP_ROOT_DIR = path.join(__dirname, '../..');
@@ -56,27 +56,6 @@ module.exports = function (env, args) {
                   "@babel/preset-typescript"
                 ],
 
-                // presets: [
-                //   [
-                //     [
-                //       "@babel/preset-env",
-                //       {
-                //         "useBuiltIns": "usage",
-                //         "corejs": 3
-                //       }
-                //     ],
-                //     "@babel/preset-react"
-                //     // '@babel/preset-react',
-                //     // '@babel/preset-env',
-                //     // {
-                //     //   modules: false,
-                //     //   forceAllTransforms: false,
-                //     //   useBuiltIns: false,
-                //     //   targets: { browsers: '> 1%' },
-                //     // },
-                //   ],
-                // ],
-
                 plugins: [
                   ['@babel/plugin-transform-typescript', {
                     allowDeclareFields: true,
@@ -87,11 +66,6 @@ module.exports = function (env, args) {
                   '@babel/plugin-transform-react-jsx',
                   '@babel/plugin-proposal-object-rest-spread',
                   '@babel/plugin-syntax-dynamic-import',
-                  ['@emotion/babel-plugin',
-                    IS_RELEASE
-                      ? { hoist: true }
-                      : { sourceMap: true, autoLabel: 'dev-only' },
-                  ],
                 ],
               },
             },
@@ -112,18 +86,19 @@ module.exports = function (env, args) {
         filename: 'index.html'
       }),
 
-      // new webpack.ProvidePlugin({
-      //   $: 'jquery',
-      //   jQuery: 'jquery'
-      // }),
-
-
       new ForkTsCheckerWebpackPlugin({
         typescript: {
           configFile: TSCONFIG_FILE,
         }
-        // tsconfig: TSCONFIG_FILE,
-        // tslint: true,
+      }),
+
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: path.resolve(__dirname, '../../models'),
+            to: 'floorplan3d/models'
+          }
+        ]
       }),
 
 

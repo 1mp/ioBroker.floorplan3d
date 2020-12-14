@@ -20,7 +20,8 @@
     "noUnusedParameters": true,
     "baseUrl": ".",
     "types": [
-      "./src/@types/index"
+      "./src/@types/index",
+      "webpack-env"
     ],
     "typeRoots": [
       "node_modules/@types"
