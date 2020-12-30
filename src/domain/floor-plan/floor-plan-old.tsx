@@ -2,24 +2,21 @@ import {cx} from '@emotion/css';
 import {cssHeightFull, cssWidthFull} from '../ui/style/css';
 import React, {Component, createRef} from 'react';
 import {
-  AmbientLight,
   DirectionalLight,
   Mesh,
-  MeshBasicMaterial,
   MeshStandardMaterial,
   PCFSoftShadowMap,
   PerspectiveCamera,
   PlaneBufferGeometry,
   PointLight,
   Scene,
-  SphereBufferGeometry,
   WebGLRenderer,
 } from 'three';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
 
-export default class FloorPlan extends Component {
+export default class FloorPlanOld extends Component {
 
   private containerRef = createRef<HTMLDivElement>();
 

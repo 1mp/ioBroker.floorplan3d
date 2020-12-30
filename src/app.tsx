@@ -3,7 +3,7 @@ import {visIsEnabled} from './vendor/vis';
 import {cx} from '@emotion/css';
 import {cssBackgroundColor, cssHeightFull, cssWidthFull} from './domain/ui/style/css';
 import ColorCode from './domain/ui/style/color-code';
-import FloorPlan from './domain/floorplan/floor-plan';
+import Main from "./domain/main/components/main";
 
 export interface AppProps {
   data: { oid: string | undefined };
@@ -32,20 +32,8 @@ export function App({ data }: AppProps) {
     <>
       <div
         className={cx(cssWidthFull, cssHeightFull, !visIsEnabled && cssBackgroundColor(ColorCode.GRAY_LIGHTER))}>
-        <FloorPlan/>
+        <Main/>
       </div>
-
-      {/*<div className={cx(cssMarginTop(100))}>*/}
-      {/*  <br/>*/}
-      {/*  Watch: {data.oid} <br/>*/}
-      {/*  Value: {value}<br/>*/}
-
-      {/*  {value == 1 && (*/}
-      {/*    <div style={{ backgroundColor: '#F90', width: 200, height: 200 }}>*/}
-      {/*      LICHT*/}
-      {/*    </div>*/}
-      {/*  )}*/}
-      {/*</div>*/}
     </>
   );
 }
